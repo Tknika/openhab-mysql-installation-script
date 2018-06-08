@@ -82,6 +82,9 @@ mysql -u $mysql_root_user -p$mysql_root_password -Bse "CREATE USER '$mysql_openh
 # Give openhab user enough permissions
 mysql -u $mysql_root_user -p$mysql_root_password -Bse "GRANT ALL PRIVILEGES ON $mysql_database_name.* TO '$mysql_openhab_user'@'localhost';" > /dev/null 2>&1
 
+# Flush privileges
+mysql -u $mysql_root_user -p$mysql_root_password -Bse "FLUSH PRIVILEGES;" > /dev/null 2>&1
+
 echo -e "MySQL correctly configured\n"
 
 
